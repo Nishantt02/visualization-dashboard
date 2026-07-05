@@ -13,8 +13,8 @@ const FILTER_FIELD_MAP = {
     sources: "source",
     swot: "swot",
     countries: "country",
-
-    city: "city"
+    
+        city: "city"
 };
 
 const normalizeValues = (value) => {
@@ -43,8 +43,8 @@ const buildFilterQuery = (reqQuery) => {
         pestle: reqQuery.pestle,
         source: reqQuery.source,
         country: reqQuery.country,
-        city: reqQuery.city ?? reqQuery.cities,
-        swot: reqQuery.swot
+            city: reqQuery.city ?? reqQuery.cities,
+            swot: reqQuery.swot
     };
 
     Object.entries(candidateFields).forEach(([field, rawValue]) => {
@@ -94,7 +94,7 @@ export const getFilterOptions = async (req, res) => {
         const pestles = await Data.distinct("pestle");
         const sources = await Data.distinct("source");
         const swot = await Data.distinct("swot");
-        const cities = await Data.distinct("city");
+            const cities = await Data.distinct("city");
         const endYears = await Data.distinct("end_year");
 
         res.json({
@@ -102,7 +102,7 @@ export const getFilterOptions = async (req, res) => {
             sectors,
             regions,
             countries,
-            cities,
+                cities,
             pestles,
             sources,
             swot,

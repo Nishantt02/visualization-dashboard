@@ -16,7 +16,7 @@
  */
 
 export const API_BASE_URL =
-  import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000/api';
+  import.meta.env.VITE_API_BASE_URL || 'https://visualization-dashboard-2-14y0.onrender.com/api';
 
 // Matches your real backend (routes/dataRoutes.js + controllers/dataControllers.js):
 // { end_year, intensity, sector, topic, insight, url, region, start_year,
