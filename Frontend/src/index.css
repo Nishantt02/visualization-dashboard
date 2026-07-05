@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@theme {
+  /* Signal Room palette */
+  --color-ink: #0e1a1c;
+  --color-panel: #142526;
+  --color-panel-raised: #1a2f30;
+  --color-hairline: #26403f;
+  --color-signal: #e8a33d;
+  --color-signal-dim: #8a6a35;
+  --color-cyan: #4fb0a5;
+  --color-cyan-dim: #33625c;
+  --color-alert: #c1554d;
+  --color-paper: #edeae3;
+  --color-muted: #90a3a2;
+  --color-muted-2: #5f7574;
+
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-ink);
+  background-image:
+    radial-gradient(circle at 15% 0%, rgba(79, 176, 165, 0.06), transparent 45%),
+    radial-gradient(circle at 85% 100%, rgba(232, 163, 61, 0.05), transparent 45%);
+  color: var(--color-paper);
+  font-family: var(--font-body);
+}
+
+::selection {
+  background-color: var(--color-signal);
+  color: var(--color-ink);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-hairline) transparent;
+}
+*::-webkit-scrollbar { width: 6px; height: 6px; }
+*::-webkit-scrollbar-thumb { background: var(--color-hairline); border-radius: 3px; }
+
+.dial-number {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+@keyframes needle-sweep {
+  0% { transform: scaleX(0); }
+  100% { transform: scaleX(1); }
+}
+.sweep-in {
+  transform-origin: left;
+  animation: needle-sweep 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sweep-in { animation: none; }
+}
